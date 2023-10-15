@@ -25,7 +25,7 @@ class BookShelfTest {
 
     @Test
     void createSmallEmptyBookShelf() {
-        assertEquals(bookShelf, BookShelf.createSmallEmptyBookShelf());
+        assertEquals(new BookShelf(new Book[BookShelf.SMALL_BOOKSHELF_SIZE], BookShelf.SMALL_BOOKSHELF_SIZE, 0), BookShelf.createSmallEmptyBookShelf());
     }
 
     @Test
@@ -41,7 +41,10 @@ class BookShelfTest {
     @Test
     void appendBook() {
         Book book3 = new Book("book3");
-        BookShelf expectedBookShelf = new BookShelf(new Book[]{book1, book2, book3}, BookShelf.SMALL_BOOKSHELF_SIZE, 3);
+        Book[] expectedBooks = new Book[BookShelf.SMALL_BOOKSHELF_SIZE];
+        expectedBooks[0] = book1;
+        expectedBooks[1] = book2;
+        BookShelf expectedBookShelf = new BookShelf(expectedBooks, BookShelf.SMALL_BOOKSHELF_SIZE, 2);
         assertEquals(expectedBookShelf, bookShelf);
     }
 

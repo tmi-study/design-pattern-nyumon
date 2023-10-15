@@ -40,19 +40,18 @@ class BookShelfIteratorTest {
 
     @Test
     void hasNextNotExist() {
-        BookShelfIterator notExistBookShelfIterator = new BookShelfIterator(bookShelf, 1);
+        BookShelfIterator notExistBookShelfIterator = new BookShelfIterator(bookShelf, 2);
         assertFalse(notExistBookShelfIterator.hasNext());
     }
 
     @Test
     void nextExist() {
-        assertEquals(book2, bookShelfIterator.next());
+        assertEquals(book1, bookShelfIterator.next());
     }
 
     @Test
     void nextNotExist() {
-        BookShelfIterator notExistBookShelfIterator = new BookShelfIterator(bookShelf, 1);
-        // new NoSuchElementException("This is the end of the BookShelfIterator")
+        BookShelfIterator notExistBookShelfIterator = new BookShelfIterator(bookShelf, 2);
         assertThrows(NoSuchElementException.class, () -> {
             notExistBookShelfIterator.next();
         });

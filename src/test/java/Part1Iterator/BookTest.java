@@ -10,7 +10,7 @@ class BookTest {
     String bookName;
     @BeforeEach
     void setUp() {
-        bookName = "";
+        bookName = "design pattern";
         book = new Book(bookName);
     }
 
@@ -21,6 +21,6 @@ class BookTest {
 
     @Test
     void getName() {
-        assertEquals("design pattern", book.getName());
+        assertEquals(bookName, book.getName());
     }
 }

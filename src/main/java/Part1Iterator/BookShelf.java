@@ -1,6 +1,8 @@
 package Part1Iterator;
 
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Objects;
 
 import static Part1Iterator.BookShelfIterator.createInitialBookShelfIterator;
 
@@ -43,8 +45,33 @@ public class BookShelf implements Iterable<Book>{
     }
 
     public void appendBook(Book book) {
-
+        validate(books, size, last);
+        books[last++] = book;
     }
 
-    public int getLength() { return 0; }
+    public int getLength() { return last; }
+
+    @Override
+    public String toString() {
+        return "BookShelf{" +
+                "books=" + Arrays.toString(books) +
+                ", size=" + size +
+                ", last=" + last +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BookShelf bookShelf = (BookShelf) o;
+        return size == bookShelf.size && last == bookShelf.last && Arrays.equals(books, bookShelf.books);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(size, last);
+        result = 31 * result + Arrays.hashCode(books);
+        return result;
+    }
 }
