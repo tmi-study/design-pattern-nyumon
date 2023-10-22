@@ -2,6 +2,7 @@
 - 상위 클래스에서 처리의 뼈대를 결정하고 하위 클래스에서 그 구체적 내용을 결정
 - AbstractDisplay를 추상클래스로 만들고 display 함수를 구체화 시켜도 되는가
   - abstract 클래스를 만들면 abstract 클래스에서 구현한 메소드를 자식이 오버라이드하면 그 메소드를 사용하는 abstract 클래스 메소드가 예상치못한 기능을 할 수 있음
+  - 자식클래스는 abstract 클래스 구현메소드(display)에 대한 로직을 알아야 잘 짤 수 있다
   - display 함수를 오버라이딩 못하게 final로 되어 있음
   - display 함수를 AbstractDisplay의 다른 함수에서 사용하지 않음
 - AbstractDisplay를 인터페이스로 만들면 장점이 있는가?
