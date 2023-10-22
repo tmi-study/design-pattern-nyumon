@@ -1,0 +1,14 @@
+# Part3 TemplateMethod
+- 상위 클래스에서 처리의 뼈대를 결정하고 하위 클래스에서 그 구체적 내용을 결정
+- AbstractDisplay를 추상클래스로 만들고 display 함수를 구체화 시켜도 되는가
+  - abstract 클래스를 만들면 abstract 클래스에서 구현한 메소드를 자식이 오버라이드하면 그 메소드를 사용하는 abstract 클래스 메소드가 예상치못한 기능을 할 수 있음
+  - display 함수를 오버라이딩 못하게 final로 되어 있음
+  - display 함수를 AbstractDisplay의 다른 함수에서 사용하지 않음
+- AbstractDisplay를 인터페이스로 만들면 장점이 있는가?
+  - Abstract 클래스로 만들 때의 실수를 줄일 수 있다
+    - 오버라이딩 불가능하게 final을 붙이는 것
+    - Abstract 클래스의 구현된 메소드를 다른 메소드에서 쓰지 않도록 하는 것
+  - display 메소드 구현에 제한 받지 않는다
+    - 여기선 open, 5번 print, close 순서로 실행
+    - 개발 도중 높은 확률로 자식 클래스의 display 구현방식이 달라질 수 있다
+      - 자식클래스A에서는 open, 3번 print, close 할 수 있다
