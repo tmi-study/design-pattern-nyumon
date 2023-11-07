@@ -7,4 +7,4 @@
   - if -> Map
   - builder.getResult -> builder.result
   - director.construct() 할 때 파일 쓰는 메소드 실행시켜도 되는가
-  - 
+- Builder를 이용해 각 부분을 만들고, Director를 이용하여 사용하는 패턴
