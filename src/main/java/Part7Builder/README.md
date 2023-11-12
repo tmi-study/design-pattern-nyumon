@@ -3,6 +3,8 @@
 - Builder : 인스턴스의 각 부분을 만드는 메소드 준비
 - Director : Builder의 메소드만 사용하여 Builder의 구현체에 의존하지 않게 함
 - Client : Builder 패턴 사용, 여기선 Main 클래스, Director의 메소드만 사용
+- builder에 정의되어 있고, director에서 조립한다
+- 자주사용하는 일련의 작업을 공통화하고 싶을 때 Builder를 사용한다
 - 기타 디자인패턴 개선
   - if -> Map
   - builder.getResult -> builder.result
