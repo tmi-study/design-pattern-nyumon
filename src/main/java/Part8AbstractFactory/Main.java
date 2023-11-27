@@ -37,12 +37,16 @@ public class Main {
 
         Tray blogTray = factory.createTray(trayName);
         blogTray.add(blog1);
+
+        return blogTray;
     }
     private static Tray createNews(Factory factory, String trayName) {
         Link news1 = factory.createLink("News 1", "https://example.com/news1");
 
         Tray newsTray = factory.createTray(trayName);
         newsTray.add(news1);
+
+        return newsTray;
     }
 
 }
