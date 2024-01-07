@@ -1,0 +1,27 @@
+# Part18 Mememto
+- 인스턴스의 상태를 나타내는 역할을 도입해, 캡슐화의 파괴에 빠지지 않고 저장과 복원을 하는 것
+- 코드 구조에 관한 아이디어
+  - Memento
+    - 인스턴스의 상태를 가지고만 있음(getMoney, getFruits, addFruit)
+    - money, fruits를 가지고 있는데 생성자는 money만 입력으로 받고, fruits는 무조건 빈배열로 생성한다
+      - 테스트할 때 상태정의를 하려면 addFruit를 계속 호출해야해서 불편
+      - 사용할 때 사용자가 fruits를 입력으로 안넣어도 fruits가 빈배열을 할당받는 것을 알아야 한다
+  - Gamer(Originator)
+    - Memento를 만들고, 인스턴스의 상태를 저장하거나 복원할 수 있다
+      - Gamer 구조가 간단하고 다른 곳에서 Memento를 저장하거나 복원할 일이 없다면 지금 형태가 이상적인 것 같다
+      - Memento에서 저장하거나 복원하는 메소드를 만드는건?
+    - if문은 배열로 만든 후 각 상황에 대해서 메소드를 만들어 가독성을 높이면 좋을 것 같다
+      - ex)FirstPrize, SecondPrize, SixthPrize, OtherPrize
+  - Main(CareTaker)
+    - Memento를 저장하고, 인스턴스의 상태를 언제 저장하고 복원하는지 결정한다
+    - Memento의 좁은 인터페이스만 사용할 수 있고, 내부 정보에 접속할 수 없다
+      - getMoney만 public
+      - 생성자, addFruit, getFruits는 default
+      - 내 생각엔 getMoney조차도 다른패키지인 Main에서 접근불가능하게 만들어야할 거 같다
+      - getMoney는 Gamer에서만 접근가능하고, 출력가능하도록
+      - Memento의 경우 default메소드로 만들면 game 패키지 내부에서만 default메소드에 대해서 테스트를 해야할 것 같다
+    - 가독성을 위해 소지금출력, 저장, 복원 부분을 함수로 분리하는 것이 좋다
+    - 상태를 언제 저장하고 복원하는지 여러 방법을 정의할 거면 추상클래스, 구현클래스 여러개 만드는 것이 좋을 거 같다
+  - Originator, CareTaker 분리하는 이유
+    - 여러 단계의 실행 취소나 현재 상태를 파일로 저장하도록 바꿀 때 CareTaker만 변경하면 된다
+  - 
